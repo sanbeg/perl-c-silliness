@@ -4,7 +4,6 @@
 
 #define sub int
 #define use int
-#define chr char
 
 use constant(char,int);
 use constant(FILE,int);
@@ -15,7 +14,6 @@ use POSIX;
 sub main() 
 {
 	FILE * $ifh;
-
 	if ( select == 0 ) 
 	    {
 		FILE * STDIN;
@@ -26,13 +24,11 @@ sub main()
 		$ifh = stdin;
 	    }
 	
-
-	int $i,$c=-1;
-	chr $ca[1000];
-	char * $cb;
+	int $i, $c=-1;
+	char * $cb, $ca[1000];
 	$cb=$ca;
 	
-	for( $i=0; !iscntrl($c); ++$i ) 
+	for( $i=0; not iscntrl($c); ++$i ) 
 	    {
 		$c = getc($ifh);
 		$cb[$i] = $c;
@@ -49,7 +45,7 @@ sub main()
 		$cb="@cb";
 	    };
 	
-	printf("%s\n", $cb);
+	printf("%s", $cb);
 }
 
 //;main;
